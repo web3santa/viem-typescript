@@ -39,7 +39,7 @@ const account = privateKeyToAccount(privateKey as Hex);
   //   console.log(nonce);
 
   //   const transaction = await client.getTransaction({
-  //     hash: "0x5cec7bcb3070419af4504ca7bc46c8582b4363b5f0ea22d61bdbd10f0db7174e",
+  //     hash: "",
   //   });
   //   console.log(transaction);
 })();
