@@ -26,60 +26,60 @@ const account = privateKeyToAccount(privateKey as Hex);
     transport: http(process.env.API_URL),
   }).extend(publicActions);
 
-  // const hash = await client.deployContract({
-  //   abi: abi,
-  //   bytecode: bytecode.object as Hex,
-  //   args: [444n],
-  // });
-
-  const { contractAddress } = await client.getTransactionReceipt({
-    hash: "0xe7ef3c6d21bd78a544834ca2de976effdb11da231f0311231a351801377a3d24",
+  const hash = await client.deployContract({
+    abi: abi,
+    bytecode: bytecode.object as Hex,
+    args: [5555n],
   });
 
-  console.log(contractAddress);
+  // const { contractAddress } = await client.getTransactionReceipt({
+  //   hash: "0xe7ef3c6d21bd78a544834ca2de976effdb11da231f0311231a351801377a3d24",
+  // });
 
-  if (contractAddress) {
-    const contract = getContract({
-      address: contractAddress,
-      abi,
-      client,
-    });
+  console.log(hash);
 
-    const x = await contract.read.x();
-    console.log(x);
+  // if (contractAddress) {
+  //   const contract = getContract({
+  //     address: contractAddress,
+  //     abi,
+  //     client,
+  //   });
 
-    const y = await contract.write.changeX([989898n]);
+  //   const x = await contract.read.x();
+  //   console.log(x);
 
-    const c = await contract.read.x();
-    console.log(c);
+  //   const y = await contract.write.changeX([989898n]);
 
-    // let x = await client.readContract({
-    //   address: contractAddress,
-    //   abi: abi,
-    //   functionName: "x",
-    // });
-    // console.log(x);
+  //   const c = await contract.read.x();
+  //   console.log(c);
 
-    // await client.writeContract({
-    //   address: contractAddress,
-    //   abi: abi,
-    //   functionName: "changeX",
-    //   args: [333n],
-    // });
+  //   // let x = await client.readContract({
+  //   //   address: contractAddress,
+  //   //   abi: abi,
+  //   //   functionName: "x",
+  //   // });
+  //   // console.log(x);
 
-    // const x2 = await client.readContract({
-    //   address: contractAddress,
-    //   abi: abi,
-    //   functionName: "x",
-    // });
-    // console.log(x2);
+  //   // await client.writeContract({
+  //   //   address: contractAddress,
+  //   //   abi: abi,
+  //   //   functionName: "changeX",
+  //   //   args: [333n],
+  //   // });
 
-    // const x = await client.getStorageAt({
-    //   address: contractAddress,
-    //   slot: toHex(0),
-    // });
-    // console.log(x);
-  }
+  //   // const x2 = await client.readContract({
+  //   //   address: contractAddress,
+  //   //   abi: abi,
+  //   //   functionName: "x",
+  //   // });
+  //   // console.log(x2);
+
+  //   // const x = await client.getStorageAt({
+  //   //   address: contractAddress,
+  //   //   slot: toHex(0),
+  //   // });
+  //   // console.log(x);
+  // }
 
   // * const result = await client.readContract({
   // *   address: '0xFBA3912Ca04dd458c843e2EE08967fC04f3579c2',
